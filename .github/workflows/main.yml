@@ -1,16 +1,16 @@
 name: Run the tests
+
 on:
   push:
     branches:
-      -master
+      - master  
 
   pull_request:
     branches:
-      -master
+      - master  
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -35,4 +35,3 @@ jobs:
           docker login --username ishaghaisas --password ${{secrets.ACCESS_TOKEN}} ghcr.io
           docker build -t ghcr.io/ishaghaisas/ciphers-service:latest --file Dockerfile .  
           docker push ghcr.io/ishaghaisas/ciphers-service:latest 
-
