@@ -14,6 +14,8 @@ RUN pip install -r requirements.txt
 
 COPY ./ciphers_project ciphers_project/
 
-COPY ./entrypoint.sh .
-RUN chmod +x entrypoint.sh
-ENTRYPOINT [ "./entrypoint.sh" ]
+COPY ./entrypoint.bat entrypoint.bat
+RUN attrib +x entrypoint.bat
+
+ENTRYPOINT [ "./entrypoint.bat" ]
+
